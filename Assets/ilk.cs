@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ilk : MonoBehaviour
 {
+    GameObject gameObject;
     // Start is called before the first frame update
     void Start()
     {
