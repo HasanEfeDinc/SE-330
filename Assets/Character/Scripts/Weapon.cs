@@ -14,7 +14,6 @@ public class Weapon : MonoBehaviour
     private int ammo = 15;
     private bool reloading = false;
     [SerializeField] private ParticleSystem FireEffect;
-    [SerializeField] GameObject target;
     [SerializeField] private AudioSource firesound, emptysound, shelldropsound, reloadsound;
     [SerializeField] private TextMeshProUGUI remainingAmmo;
 
@@ -66,13 +65,13 @@ public class Weapon : MonoBehaviour
             RaycastHit raycastHit = new RaycastHit();
             if (Physics.Raycast(transform.position, transform.forward, out raycastHit, range))
             {
-                if (raycastHit.transform.gameObject == target) 
+                if (raycastHit.transform.gameObject.CompareTag("Zombie")) 
                 {
-                    target.GetComponent<ZombieScript>().DecreaseHealthBar();
-                    if (target.GetComponent<ZombieScript>().health == 0)
+                    raycastHit.transform.gameObject.GetComponent<ZombieScript>().DecreaseHealthBar();
+                    if (raycastHit.transform.gameObject.GetComponent<ZombieScript>().health == 0)
                     {
-                        target.GetComponent<Animator>().SetBool("Die",true);
-                        target.GetComponent<NavMeshAgent>().enabled = false;
+                        raycastHit.transform.gameObject.GetComponent<Animator>().SetBool("Die",true);
+                        raycastHit.transform.gameObject.GetComponent<NavMeshAgent>().enabled = false;
 
                     }
                 }
