@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -9,17 +10,8 @@ public class ZombieScript : MonoBehaviour
 {
     public int health = 100;
     public GameObject panel;
-    [SerializeField] private Collider Detect, Leave, Human;
-    [SerializeField] private Animator anim;
-    [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private GameObject Character;
-    private Vector3 position;
+    public GameObject healthBar;
     
-    void Update()
-    {
-        position = Character.transform.position;
-    }
-
     public void DecreaseHealthBar()
     {
         Image healthBarImage = panel.gameObject.GetComponent<Image>();
@@ -28,20 +20,10 @@ public class ZombieScript : MonoBehaviour
         healthBarImage.fillAmount -= decreaseAmount;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void decreaseHealth()
     {
-        if (other == Human)
-        {
-            anim.Play("Walk Animation");
-            agent.SetDestination(position);
-        }
+        healthBar.GetComponent<HealthBar>().getDamage(5);
     }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other == Human)
-        {
-            anim.Play("Walk Animation");
-            agent.SetDestination(position);
-        }
-    }
+    
+    
 }
