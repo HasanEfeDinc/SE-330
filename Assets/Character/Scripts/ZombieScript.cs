@@ -24,6 +24,11 @@ public class ZombieScript : MonoBehaviour
     {
         healthBar.GetComponent<HealthBar>().getDamage(5);
     }
+
+    public void destryobject()
+    {
+        Destroy(gameObject);
+    }
     
     
 }
