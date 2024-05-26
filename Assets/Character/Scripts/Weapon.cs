@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
@@ -16,7 +17,6 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject target;
     [SerializeField] private AudioSource firesound, emptysound, shelldropsound, reloadsound;
     [SerializeField] private TextMeshProUGUI remainingAmmo;
-    [SerializeField] private Animator anim;
 
 
     private void Start()
@@ -71,7 +71,9 @@ public class Weapon : MonoBehaviour
                     target.GetComponent<ZombieScript>().DecreaseHealthBar();
                     if (target.GetComponent<ZombieScript>().health == 0)
                     {
-                        anim.SetBool("Die",true);
+                        target.GetComponent<Animator>().SetBool("Die",true);
+                        target.GetComponent<NavMeshAgent>().enabled = false;
+
                     }
                 }
             }
