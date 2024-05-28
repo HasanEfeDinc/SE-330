@@ -8,16 +8,17 @@ public class HealthBar : MonoBehaviour
 {
     public Image fillImage;
     public float health;
+    public GameObject damagePanel;
+    public GameObject gameOverPanel;
 
     public void getDamage(int value)
     {
         health -= value;
         fillImage.fillAmount = health / 100;
-
         if (health <= 0)
         {
             // dead
-            return;
+            gameOverPanel.SetActive(true);
         }
     }
 
@@ -33,6 +34,8 @@ public class HealthBar : MonoBehaviour
             return;
         }
     }
+
+   
 
     
 }
