@@ -52,15 +52,7 @@ public class Zombie : MonoBehaviour
         health -= 50;
         healthBarImage.fillAmount -= decreaseAmount;
     }
-/*
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player")) 
-        {
-            healthBar.getDamage(10); 
-        }
-    }
-*/
+
     private void OnTriggerStay(Collider other)
     {
         if (other == Human)

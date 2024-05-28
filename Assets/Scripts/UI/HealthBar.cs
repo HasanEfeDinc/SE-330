@@ -11,6 +11,7 @@ public class HealthBar : MonoBehaviour
     public GameObject damagePanel;
     public GameObject gameOverPanel;
 
+    [SerializeField] private GameObject text;
     public void getDamage(int value)
     {
         health -= value;
@@ -19,6 +20,12 @@ public class HealthBar : MonoBehaviour
         {
             // dead
             gameOverPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
+
+        if (health == 50)
+        {
+            OpenText();
         }
     }
 
@@ -27,15 +34,21 @@ public class HealthBar : MonoBehaviour
         health += value;
         fillImage.fillAmount = health / 100;
         
-        //maybe something like UI text appearing on the screen
-
         if (health == 100)
         {
             return;
         }
     }
 
-   
+    private void OpenText()
+    {
+        text.SetActive(true);
+        Invoke("CloseText", 1f);  
+    }
 
+    private void CloseText()
+    {
+        text.SetActive(false);
+    }
     
 }

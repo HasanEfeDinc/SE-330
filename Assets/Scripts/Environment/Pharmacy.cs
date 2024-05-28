@@ -16,7 +16,7 @@ public class Pharmacy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            healthbar.heal(1);
+            healthbar.heal(2);
         }
     }
 }
