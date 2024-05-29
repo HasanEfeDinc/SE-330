@@ -29,6 +29,16 @@ public class ZombieScript : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void enableagent()
+    {
+        gameObject.GetComponent<NavMeshAgent>().enabled = true;
+    }
+    
+    public void disableagent()
+    {
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
+    }
     
     
 }
