@@ -276,8 +276,6 @@ MonoBehaviour:
   levelButtons:
   - {fileID: 1343924560}
   - {fileID: 45889321}
-  src: {fileID: 0}
-  buttonClick: {fileID: 0}
 --- !u!4 &283781352
 Transform:
   m_ObjectHideFlags: 0
