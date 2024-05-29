@@ -4,19 +4,12 @@ using UnityEngine;
 
 public class ChildZombie : MonoBehaviour
 {
-    private HealthBar healthbar;
     public GameObject damagePanel;
-
-    private void Start()
-    {
-        healthbar = FindObjectOfType<HealthBar>();
-    }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            healthbar.getDamage(5);
             OpenDamagePanel();
         }
     }
