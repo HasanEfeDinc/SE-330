@@ -11,7 +11,7 @@ public class ZombieScript : MonoBehaviour
     public int health = 100;
     public GameObject panel;
     public GameObject healthBar;
-    
+    public GameObject damagepanel;
     public void DecreaseHealthBar()
     {
         Image healthBarImage = panel.gameObject.GetComponent<Image>();
@@ -23,11 +23,22 @@ public class ZombieScript : MonoBehaviour
     public void decreaseHealth()
     {
         healthBar.GetComponent<HealthBar>().getDamage(5);
+        StartCoroutine(activateDamagePanel());
     }
 
     public void destryobject()
     {
         Destroy(gameObject);
+    }
+
+    IEnumerator activateDamagePanel()
+    {
+        if (!damagepanel.activeSelf)
+        {
+            damagepanel.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            damagepanel.SetActive(false);
+        }
     }
     
     

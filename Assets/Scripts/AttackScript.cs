@@ -7,6 +7,7 @@ public class AttackScript : MonoBehaviour
 {
     [SerializeField] private Collider Human;
     [SerializeField] private Animator anim;
+    public GameObject damagepanel;
     
     
     private void OnTriggerEnter(Collider other)
