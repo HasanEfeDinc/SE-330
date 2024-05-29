@@ -7,6 +7,7 @@ public class Hospital : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Player"))
         {
             int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
@@ -17,6 +18,9 @@ public class Hospital : MonoBehaviour
             {
                 PlayerPrefs.SetInt("levelAt", nextSceneIndex);
             }
+
+
         }
+
     }
 }
