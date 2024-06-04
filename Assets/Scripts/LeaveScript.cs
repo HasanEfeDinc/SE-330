@@ -25,4 +25,8 @@ public class LeaveScript : MonoBehaviour
             agent.SetDestination(gameObject.GetComponentInParent<Transform>().position);
         }
     }
+    private void Start()
+    {
+        gameObject.GetComponent<SphereCollider>().radius = 15;
+    }
 }

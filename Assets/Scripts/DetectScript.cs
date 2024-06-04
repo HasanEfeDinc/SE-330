@@ -34,4 +34,9 @@ public class DetectScript : MonoBehaviour
             agent.SetDestination(Human.transform.position);
         }
     }
+
+    private void Start()
+    {
+        gameObject.GetComponent<SphereCollider>().radius = 10;
+    }
 }
