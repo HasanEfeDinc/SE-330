@@ -11,6 +11,7 @@ public class StoryTelling : MonoBehaviour
     [SerializeField] private float talk2Duration = 2f; 
     [SerializeField] private MonoBehaviour characterMovementScript; 
     [SerializeField] private GameObject ammo;
+    [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject motherImage;
     [SerializeField] private GameObject characterImage;
 
@@ -36,15 +37,13 @@ public class StoryTelling : MonoBehaviour
         ActivateMotherImage();
         yield return new WaitForSeconds(talk2Duration);
         
-        
-        
-        
         CloseStoryPanel();
 
         if (characterMovementScript != null)
         {
             characterMovementScript.enabled = true;
             ammo.SetActive(true);
+            crosshair.SetActive(true);
         }
     }
 
