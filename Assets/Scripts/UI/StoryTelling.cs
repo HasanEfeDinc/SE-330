@@ -11,6 +11,8 @@ public class StoryTelling : MonoBehaviour
     [SerializeField] private float talk2Duration = 2f; 
     [SerializeField] private MonoBehaviour characterMovementScript; 
     [SerializeField] private GameObject crosshair;
+    [SerializeField] private GameObject ammo;
+
 
     public GameObject storyPanel;
 
@@ -24,6 +26,7 @@ public class StoryTelling : MonoBehaviour
         if (characterMovementScript != null)
         {
             characterMovementScript.enabled = false;
+            ammo.SetActive(false);
         }
 
         ActivateText1();
@@ -38,6 +41,7 @@ public class StoryTelling : MonoBehaviour
         {
             characterMovementScript.enabled = true;
             crosshair.SetActive(true);
+            ammo.SetActive(true);
         }
     }
 
