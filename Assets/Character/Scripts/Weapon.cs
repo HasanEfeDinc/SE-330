@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private ParticleSystem FireEffect;
     [SerializeField] private AudioSource firesound, emptysound, shelldropsound, reloadsound;
     [SerializeField] private TextMeshProUGUI remainingAmmo;
+    [SerializeField] private LayerMask zombie;
 
 
     private void Start()
@@ -63,7 +64,7 @@ public class Weapon : MonoBehaviour
             firesound.Play();
             shelldropsound.PlayDelayed(0.1f);
             RaycastHit raycastHit = new RaycastHit();
-            if (Physics.Raycast(transform.position, transform.forward, out raycastHit, range))
+            if (Physics.Raycast(transform.position, transform.forward, out raycastHit, range,zombie))
             {
                 if (raycastHit.transform.gameObject.CompareTag("Zombie")) 
                 {
