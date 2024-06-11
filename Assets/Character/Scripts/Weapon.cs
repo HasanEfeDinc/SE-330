@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
 {
     private float fireRate = 0.7f;  
     private float nextFireTime = 0f;
-    private float range = 500;
+    private float range = 5000;
     private int ammo = 15;
     private bool reloading = false;
     [SerializeField] private ParticleSystem FireEffect;

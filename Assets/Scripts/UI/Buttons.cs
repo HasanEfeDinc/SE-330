@@ -17,6 +17,8 @@ public class Buttons : MonoBehaviour
     
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         Button btn1 = homeButton.GetComponent<Button>();
         Button btn2 = restartButton.GetComponent<Button>();
         Button btn3 = pauseButton.GetComponent<Button>();
@@ -30,6 +32,8 @@ public class Buttons : MonoBehaviour
 
     public void GoToMenu()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         gameOverPanel.SetActive(false);
         SceneManager.LoadScene(1);
@@ -39,6 +43,8 @@ public class Buttons : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         gameOverPanel.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(currentSceneIndex);
         Time.timeScale = 1;
     }
@@ -47,12 +53,16 @@ public class Buttons : MonoBehaviour
     {
         Controller controller = GetComponent<Controller>();
         pausePanel.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
     }
 
     public void ContinueGame()
     {
         pausePanel.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
     }
     
