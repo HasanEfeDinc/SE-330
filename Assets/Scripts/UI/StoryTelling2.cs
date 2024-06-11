@@ -14,6 +14,8 @@ public class StoryTelling2 : MonoBehaviour
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject motherImage;
     [SerializeField] private GameObject characterImage;
+    [SerializeField] private GameObject miniMap;
+
 
     public GameObject storyPanel;
 
@@ -28,6 +30,7 @@ public class StoryTelling2 : MonoBehaviour
         {
             characterMovementScript.enabled = false;
             ammo.SetActive(false);
+            miniMap.SetActive(false);
         }
 
         ActivateText1();
@@ -44,6 +47,7 @@ public class StoryTelling2 : MonoBehaviour
             characterMovementScript.enabled = true;
             ammo.SetActive(true);
             crosshair.SetActive(true);
+            miniMap.SetActive(true);
         }
     }
 
