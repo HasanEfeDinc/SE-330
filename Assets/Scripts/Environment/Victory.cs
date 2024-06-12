@@ -14,7 +14,8 @@ public class Victory : MonoBehaviour
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject motherImage;
     [SerializeField] private GameObject characterImage;
-
+    [SerializeField] private GameObject miniMap;
+    
     public GameObject storyPanel;
     public GameObject victoryStoryPanel;
     public GameObject victoryPanel;
@@ -53,6 +54,7 @@ public class Victory : MonoBehaviour
         {
             characterMovementScript.enabled = false;
             ammo.SetActive(false);
+            miniMap.SetActive(false);
         }
 
         ActivateText1();
@@ -93,9 +95,16 @@ public class Victory : MonoBehaviour
     public void CloseStoryPanel()
     {
         victoryStoryPanel.SetActive(false);
-        victoryPanel.SetActive(true);
-        crosshair.SetActive(false);
-        characterMovementScript.enabled = false;
-
+        if (characterMovementScript != null)
+        {
+            characterMovementScript.enabled = false;
+            victoryPanel.SetActive(true);
+            crosshair.SetActive(false);
+            ammo.SetActive(false);
+            miniMap.SetActive(false);
+        }
+        
+        
+        
     }
 }
