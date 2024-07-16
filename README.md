@@ -11,3 +11,5 @@ In the second level, the player enters a hospital and in that area, they should 
 ## How to Play
 The game is played by using WASD keys and a mouse. Clicking the mouse makes the character shoot the infected people and moving the mouse to the sides makes the character rotate around.  WASD keys make the character go forward, backward, left, and right
 
+## Video of Gameplay
+[Video Link](https://www.youtube.com/watch?v=OR8-sTPZEUU&list=LL&index=10&pp=gAQBiAQB)
